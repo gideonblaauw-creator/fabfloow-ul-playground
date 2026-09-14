@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recorrido LexiScan · Visita guiada</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div>
+      <div class="brand">FabFloow · LexiScan</div>
+      <h1>Visita guiada · LexiScan</h1>
+      <p class="tagline">Verificador de expedientes — no genera memoriales automáticos</p>
+    </div>
+    <div class="header-actions">
+      <span class="progress-pill" id="progress-text">0 de 21 actividades</span>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar-map">
+      <h2>🗺 Plano de planta</h2>
+      <nav class="floor-plan" id="floor-plan" aria-label="Navegación entre salas"></nav>
+    </aside>
+
+    <main class="main-content" id="room-container" aria-live="polite">
+      <!-- Room views rendered by app.js -->
+    </main>
+
+    <aside class="sidebar-ledger">
+      <h2>📋 Registro de decisiones</h2>
+      <div id="ledger-list">
+        <p class="ledger-empty">Aún no hay decisiones.</p>
+      </div>
+      <div class="export-section">
+        <h3>Descargar mis decisiones</h3>
+        <p style="font-size:0.8rem;color:var(--ink-muted);margin-bottom:0.75rem">
+          Guarde un archivo con sus elecciones para compartir con el equipo o archivar en el
+          <a href="https://app.notion.com/p/3d9dfee50be981a39107ef7854ec3ce8" target="_blank" rel="noopener">registro de decisiones</a>.
+        </p>
+        <div class="export-buttons">
+          <button type="button" class="btn btn-primary btn-sm" id="export-json">⬇ Descargar (JSON)</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="export-md">⬇ Descargar (texto)</button>
+          <button type="button" class="btn btn-sm" id="reset-progress" style="color:var(--ink-muted);background:transparent;border:1px solid var(--border)">Reiniciar recorrido</button>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <button type="button" class="mobile-nav-toggle" id="mobile-map-toggle" aria-label="Ver plano">🗺</button>
+
+  <div class="welcome-overlay" id="welcome-overlay">
+    <div class="welcome-card">
+      <h2>Bienvenido al recorrido</h2>
+      <p>
+        Esta visita guiada recorre las <strong>siete salas de LexiScan</strong> tal como las vería un abogado del estudio:
+        recepción del expediente, alertas, confirmación humana, verificación de citas, fuentes oficiales, informe final y archivo.
+      </p>
+      <ul>
+        <li>Complete actividades interactivas en cada sala</li>
+        <li>Responda preguntas breves sobre el funcionamiento del producto</li>
+        <li>Registre sus decisiones en cada puerta antes de avanzar</li>
+        <li>Su progreso se guarda automáticamente en este navegador</li>
+      </ul>
+      <p style="font-size:0.85rem;color:var(--pending)">
+        ⚠ Recorrido educativo — no modifica su expediente real · Precio por definir
+      </p>
+      <button type="button" class="btn btn-primary" id="start-tour">Comenzar recorrido →</button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <span>FabFloow lab · recorrido educativo LexiScan</span>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
